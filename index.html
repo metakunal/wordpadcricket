@@ -20,11 +20,15 @@
         <h5>Automatic refresh 🔃 in 10 seconds.</h5>
         <br>
         <p id="msg" style="color:red;"></p>
-        <b class="title" style="color:#009270"></b> <br />
+        🔴<b class="title" style="color:#009270"></b> <br />
         <b>Score : </b><b class="current" style="color:#404040"></b><br />
         <b>Updates : </b><b class="update" style="color:#404040"></b><br />
         <b> Recent Balls : </b><b class="recentballs" style="color:#404040"></b><br />
         <b> Runrate : </b><b class="runrate" style="color:#404040"></b><br />
+        <b> Partnership : </b><b class="partnership" style="color:#404040"></b><br />
+        <b> Batsman : </b><b class="batsman" style="color:#404040"></b><br />
+        <b> Bowler : </b><b class="bowler" style="color:#404040"></b><br />
+        <b> Last-Wicket : </b><b class="lastwicket" style="color:#404040"></b><br />
         <br /><br />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
@@ -43,32 +47,107 @@
                         $(".recentballs").html(data['livescore']['recentballs']);
                         // Runrate
                         $(".runrate").html(data['livescore']['runrate']);
+                        //partnership
+                        $(".partnership").html(data['livescore']['partnership']);
+                        //batsman
+                        $(".batsman").html(data['livescore']['batsman']);
+                        //bowler
+                        $(".bowler").html(data['livescore']['bowler']);
+                        //lastwicket
+                        $(".lastwicket").html(data['livescore']['lastwicket']);
                         $("#msg").html("");
                     });
                 }
             });
         </script>
         <!-- MATCH 2 -->
-        <p id="msg" style="color:red;"></p>
-        <b class="title" style="color:blue"></b> <br />
-        <b class="current" style="color:green"></b><br />
-        <b class="update" style="color:green"></b><br />
+        <!-- <p id="msg" style="color:red;"></p> -->
+        📰<b class="title2" style="color:#009270"></b> <br />
+        <b>Team-One : </b><b class="teamone2" style="color:#404040"></b><br />
+        <b>Team-Two : </b><b class="teamtwo2" style="color:#404040"></b><br />
+        <b>Verdict : </b><b class="update2" style="color:#404040"></b><br />
         <br /><br />
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
-            $(function () {
+            $(function match2() {
                 // set cricbuzz.com live cricket score url.
-                let url = "https://www.cricbuzz.com/live-cricket-scores/37567/dc-vs-srh-33rd-match-indian-premier-league-2021";
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37562/pbks-vs-rr-32nd-match-indian-premier-league-2021";
                 getLiveScore(url);
-                setInterval(function () { getLiveScore(url); }, 8000);
+                setInterval(function () { getLiveScore(url); }, 10000);
                 function getLiveScore(url) {
                     $("#msg").html("Updating score..");
                     $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
-                        console.log(data);
-                        $(".title").html(data['livescore']['title']); $(".current").html(data['livescore']['current']);
-                        $(".update").html(data['livescore']['update']);
-                        $("#msg").html("");
+                        // console.log(data);
+                        $(".title2").html(data['livescore']['title']);
+                        //Team One
+                        $(".teamone2").html(data['livescore']['teamone']);
+                        //Team Two
+                        $(".teamtwo2").html(data['livescore']['teamtwo']);
+                        //Update
+                        $(".update2").html(data['livescore']['update']);
+
+                    });
+                }
+            });
+        </script>
+
+        <!-- MATCH 3 -->
+        <!-- <p id="msg" style="color:red;"></p> -->
+        📰<b class="title3" style="color:#009270"></b> <br />
+        <b>Team-One : </b><b class="teamone3" style="color:#404040"></b><br />
+        <b>Team-Two : </b><b class="teamtwo3" style="color:#404040"></b><br />
+        <b>Verdict : </b><b class="update3" style="color:#404040"></b><br />
+        <br /><br />
+
+        <script>
+            $(function match3() {
+                // set cricbuzz.com live cricket score url.
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37557/kkr-vs-rcb-31st-match-ipl-2021";
+                getLiveScore(url);
+                setInterval(function () { getLiveScore(url); }, 10000);
+                function getLiveScore(url) {
+                    $("#msg").html("Updating score..");
+                    $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
+                        // console.log(data);
+                        $(".title3").html(data['livescore']['title']);
+                        //Team One
+                        $(".teamone3").html(data['livescore']['teamone']);
+                        //Team Two
+                        $(".teamtwo3").html(data['livescore']['teamtwo']);
+                        //Update
+                        $(".update3").html(data['livescore']['update']);
+
+                    });
+                }
+            });
+        </script>
+
+        <!-- MATCH 3 -->
+        <!-- <p id="msg" style="color:red;"></p> -->
+        📰<b class="title4" style="color:#009270"></b> <br />
+        <b>Team-One : </b><b class="teamone4" style="color:#404040"></b><br />
+        <b>Team-Two : </b><b class="teamtwo4" style="color:#404040"></b><br />
+        <b>Verdict : </b><b class="update4" style="color:#404040"></b><br />
+        <br /><br />
+
+        <script>
+            $(function match4() {
+                // set cricbuzz.com live cricket score url.
+                let url = "https://www.cricbuzz.com/live-cricket-scorecard/37556/csk-vs-mi-30th-match-indian-premier-league-2021";
+                getLiveScore(url);
+                setInterval(function () { getLiveScore(url); }, 10000);
+                function getLiveScore(url) {
+                    $("#msg").html("Updating score..");
+                    $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
+                        // console.log(data);
+                        $(".title4").html(data['livescore']['title']);
+                        //Team One
+                        $(".teamone4").html(data['livescore']['teamone']);
+                        //Team Two
+                        $(".teamtwo4").html(data['livescore']['teamtwo']);
+                        //Update
+                        $(".update4").html(data['livescore']['update']);
+
                     });
                 }
             });
