@@ -5,22 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <title>Word Document</title>
 </head>
 
 <body>
     <img src="topbar.png" alt="" class="topbar sticky">
-    <p>Hello world</p>
+
     <!-- API Code -->
     <div class="api">
 
-        <h3>Get the fastest cricket updates here : </h3>
+        <h3>Get the fastest cricket 🏏 updates here in a WordPad UI : </h3>
+        <h5>Automatic refresh 🔃 in 10 seconds.</h5>
+        <br>
         <p id="msg" style="color:red;"></p>
-        <b class="title" style="color:#22577A"></b> <br />
-        Score : <b class="current" style="color:#FFB319"></b><br />
-        Updates : <b class="update" style="color:#FFB319"></b><br />
-        Recent Balls : <b class="recentballs" style="color:#FFB319"></b><br />
+        <b class="title" style="color:#009270"></b> <br />
+        <b>Score : </b><b class="current" style="color:#404040"></b><br />
+        <b>Updates : </b><b class="update" style="color:#404040"></b><br />
+        <b> Recent Balls : </b><b class="recentballs" style="color:#404040"></b><br />
+        <b> Runrate : </b><b class="runrate" style="color:#404040"></b><br />
         <br /><br />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
@@ -28,7 +34,7 @@
                 // set cricbuzz.com live cricket score url.
                 let url = "https://www.cricbuzz.com/live-cricket-scores/37567/dc-vs-srh-33rd-match-indian-premier-league-2021";
                 getLiveScore(url);
-                setInterval(function () { getLiveScore(url); }, 8000);
+                setInterval(function () { getLiveScore(url); }, 10000);
                 function getLiveScore(url) {
                     $("#msg").html("Updating score..");
                     $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
@@ -37,6 +43,8 @@
                         $(".update").html(data['livescore']['update']);
                         // Recent Balls
                         $(".recentballs").html(data['livescore']['recentballs']);
+                        // Runrate
+                        $(".runrate").html(data['livescore']['runrate']);
                         $("#msg").html("");
                     });
                 }
