@@ -3,6 +3,18 @@
     padding: 0;
     border: 0;
 }
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+h3{
+    font-size: 1.8rem;
+}
+h5{
+    font-size: 1.1rem;
+}
+
 .sticky {
     position: fixed;
     top: 0;
