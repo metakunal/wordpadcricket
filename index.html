@@ -35,13 +35,13 @@
         🔴<b class="title" style="color:#009270"></b> <br />
         <b>Score : </b><b class="current" style="color:#404040"></b><br />
         <b>Updates : </b><b class="update" style="color:#404040"></b><br />
-        <!-- <b> Recent Balls : </b><b class="recentballs" style="color:#404040"></b><br /> -->
+        <b> Recent Balls : </b><b class="recentballs" style="color:#404040"></b><br />
         <b> Runrate : </b><b class="runrate" style="color:#404040"></b><br />
         <b> Partnership : </b><b class="partnership" style="color:#404040"></b><br />
         <b> Batsman : </b><b class="batsman" style="color:#404040"></b><br />
         <b> Bowler : </b><b class="bowler" style="color:#404040"></b><br />
-        <b> Recent Balls : </b><b class="lastwicket" style="color:#404040"></b><br />
-        <b> Commentary : </b><b class="commentary" style="color:#404040"></b><br />
+        <b> Last Wicket : </b><b class="lastwicket" style="color:#404040"></b><br />
+        <!-- <b> Commentary : </b><b class="commentary" style="color:#404040"></b><br /> -->
         <br /><br />
 
         <script>
@@ -68,8 +68,8 @@
                         $(".bowler").html(data['livescore']['bowler']);
                         //lastwicket
                         $(".lastwicket").html(data['livescore']['lastwicket']);
-                        //commentary
-                        $(".commentary").html(data['livescore']['commentary']);
+                        // //commentary
+                        // $(".commentary").html(data['livescore']['commentary']);
                         $("#msg").html("");
                     });
                 }
