@@ -47,7 +47,7 @@
         <script>
             $(function () {
                 // set cricbuzz.com live cricket score url.
-                let url = "https://www.cricbuzz.com/live-cricket-scores/37577/rcb-vs-csk-35th-match-ipl-2021";
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37581/dc-vs-rr-36th-match-ipl-2021";
                 getLiveScore(url);
                 setInterval(function () { getLiveScore(url); }, 10000);
                 function getLiveScore(url) {
@@ -71,6 +71,35 @@
                         //commentary
                         $(".commentary").html(data['livescore']['commentary']);
                         $("#msg").html("");
+                    });
+                }
+            });
+        </script>
+        <!-- Match - 6 -->
+        📰<b class="title6" style="color:#009270"></b> <br />
+        <b>Team-One : </b><b class="teamone6" style="color:#404040"></b><br />
+        <b>Team-Two : </b><b class="teamtwo6" style="color:#404040"></b><br />
+        <b>Verdict : </b><b class="update6" style="color:#404040"></b><br />
+        <br /><br />
+
+        <script>
+            $(function match0() {
+                // set cricbuzz.com live cricket score url.
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37577/rcb-vs-csk-35th-match-ipl-2021";
+                getLiveScore(url);
+                setInterval(function () { getLiveScore(url); }, 10000);
+                function getLiveScore(url) {
+                    $("#msg").html("Updating score..");
+                    $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
+                        // console.log(data);
+                        $(".title6").html(data['livescore']['title']);
+                        //Team One
+                        $(".teamone6").html(data['livescore']['teamone']);
+                        //Team Two
+                        $(".teamtwo6").html(data['livescore']['teamtwo']);
+                        //Update
+                        $(".update6").html(data['livescore']['update']);
+
                     });
                 }
             });
