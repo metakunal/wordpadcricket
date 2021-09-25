@@ -47,7 +47,7 @@
         <script>
             $(function () {
                 // set cricbuzz.com live cricket score url.
-                let url = "https://www.cricbuzz.com/live-cricket-scores/37582/srh-vs-pbks-37th-match-indian-premier-league-2021";
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37586/csk-vs-kkr-38th-match-indian-premier-league-2021";
                 getLiveScore(url);
                 setInterval(function () { getLiveScore(url); }, 10000);
                 function getLiveScore(url) {
@@ -71,6 +71,35 @@
                         //commentary
                         $(".commentary").html(data['livescore']['commentary']);
                         $("#msg").html("");
+                    });
+                }
+            });
+        </script>
+        <!-- Match - 8 -->
+        📰<b class="title8" style="color:#009270"></b> <br />
+        <b>Team-One : </b><b class="teamone8" style="color:#404040"></b><br />
+        <b>Team-Two : </b><b class="teamtwo8" style="color:#404040"></b><br />
+        <b>Verdict : </b><b class="update8" style="color:#404040"></b><br />
+        <br /><br />
+
+        <script>
+            $(function match8() {
+                // set cricbuzz.com live cricket score url.
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37582/srh-vs-pbks-37th-match-indian-premier-league-2021";
+                getLiveScore(url);
+                setInterval(function () { getLiveScore(url); }, 10000);
+                function getLiveScore(url) {
+                    $("#msg").html("Updating score..");
+                    $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
+                        // console.log(data);
+                        $(".title8").html(data['livescore']['title']);
+                        //Team One
+                        $(".teamone8").html(data['livescore']['teamone']);
+                        //Team Two
+                        $(".teamtwo8").html(data['livescore']['teamtwo']);
+                        //Update
+                        $(".update8").html(data['livescore']['update']);
+
                     });
                 }
             });
