@@ -30,8 +30,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <br>
         <br>
+        🔴<b class="title" style="color:#009270"> Hello! I am currently not updating the website,
+            might update when I am putting it in my resume.
+            <br>
+            If you want to work on it, the <a href="https://github.com/metakunal/wordpadcricket">repository</a> is
+            public.
+
+
+        </b>
+        <br>
+        <br>
         <!-- Live Match -->
-        <p id="msg" style="color:red;"></p>
+        <!-- <p id="msg" style="color:red;"></p>
         🔴<b class="title" style="color:#009270"></b> <br />
         <b>Score : </b><b class="current" style="color:#404040"></b><br />
         <b>Updates : </b><b class="update" style="color:#404040"></b><br />
@@ -71,6 +81,35 @@
                         //commentary
                         $(".commentary").html(data['livescore']['commentary']);
                         $("#msg").html("");
+                    });
+                }
+            });
+        </script> -->
+        <!-- Match - 9-->
+        📰<b class="title9" style="color:#009270"></b> <br />
+        <b>Team-One : </b><b class="teamone9" style="color:#404040"></b><br />
+        <b>Team-Two : </b><b class="teamtwo9" style="color:#404040"></b><br />
+        <b>Verdict : </b><b class="update9" style="color:#404040"></b><br />
+        <br /><br />
+
+        <script>
+            $(function match8() {
+                // set cricbuzz.com live cricket score url.
+                let url = "https://www.cricbuzz.com/live-cricket-scores/37586/csk-vs-kkr-38th-match-indian-premier-league-2021";
+                getLiveScore(url);
+                setInterval(function () { getLiveScore(url); }, 10000);
+                function getLiveScore(url) {
+                    $("#msg").html("Updating score..");
+                    $.getJSON('https://cricket-api.vercel.app/cri.php?url=' + url, function (data) {
+                        // console.log(data);
+                        $(".title9").html(data['livescore']['title']);
+                        //Team One
+                        $(".teamone9").html(data['livescore']['teamone']);
+                        //Team Two
+                        $(".teamtwo9").html(data['livescore']['teamtwo']);
+                        //Update
+                        $(".update9").html(data['livescore']['update']);
+
                     });
                 }
             });
